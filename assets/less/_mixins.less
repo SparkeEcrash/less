@@ -1,0 +1,22 @@
+// MIXINS ***************************
+
+.transition(@time: 0.2s, @ease: ease-in-out, @prop: all) {	//0.2s is the default if no @time input is provided
+	//all vendor prefixed declarations go on top 
+	-webkit-transition: @prop @time @ease;	// out of date browsers
+	-moz-transition: @prop @time @ease;		// mozilla firefox
+	-o-transition: @prop @time @ease;			// opera
+	-ms-transition: @prop @time @ease;			// microsoft 
+	transition: @prop @time @ease;
+}
+
+.box-shadow(@x: 0, @y: 1rem, @blur: 2rem, @color: #bbb) {
+	-webkit-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	box-shadow: @x @y @blur @color;
+}
+
+.rounded(@r) {
+	-webkit-border-radius: ~"@{r}rem";
+	-moz-border-radius: ~"@{r}rem";
+	border-radius: ~"@{r}rem";
+}

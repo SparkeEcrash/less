@@ -1,0 +1,159 @@
+// IMPORTS
+@import "_vars.less";
+@import "_mixins.less";
+
+// STYLES ****************************
+
+html {
+    background-image: svg-gradient(to bottom, #eee, tint(@main-color, 20%) 20%, shade(#eee));
+}
+
+body {
+    color: #ccc;
+}
+
+body h1 {
+    color: @main-color;
+    font-size: 2em;
+}
+body span {
+    font-style: italic;
+}
+
+
+.wrap {
+    width: 35em;
+    margin: 0 auto;
+}
+
+.container {
+    .box-shadow();
+    background-color: #fff;
+		margin-bottom: 3rem;
+		
+		h1 {
+			padding: 0 1rem;
+			color: @main-color;
+		}
+
+		p {
+			padding: 0 1rem 1rem;
+			margin: 0;
+			line-height: 1.4;
+			font-size: 0.8rem;
+		}
+}
+
+h1 {
+    padding: 0 1rem;
+    color: @main-color;
+}
+
+p {
+    padding: 0 1rem 1rem;
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+
+.container__read-more a {
+    color: @main-color;
+    font-size: 0.7rem;
+}
+
+// TAGLIST CODE ************************
+
+.taglist {
+    border-top: 1px solid @main-color;
+    margin: 0;
+		padding: 0.7rem 1rem 1rem;
+		@media (max-width: 320px) {
+			padding: 1rem;
+		}
+}
+.taglist__tag {
+    display: inline;
+    background-color: @main-color;
+    font-size: 0.5rem;
+    padding: 0.4rem 0.4rem 0.3rem;
+    border-radius: 0.3rem;
+    margin-right: 0.2rem;
+		color: white;
+		
+		&:hover {
+			background-color: #69b0d0;
+			.transition(0.5s, linear, background-color);
+		}
+}
+.taglist__tag a {
+    color: white;
+		text-decoration: none;
+		&:hover {
+			color: @main-color;
+		}
+}
+
+.taglist__tag a:hover {
+    color: @main-color;
+}
+
+// MESSAGE CLASS ***************
+
+.message {
+    width: auto;
+    background-color: 58,190,135;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.message span {
+    font-weight: bold;
+}
+
+.message-@{error} {
+		&:extend(.message all); //the all variable also extends the span class within .message
+    color: #333;
+    background-color: rgba(200,53,47, 0.2);
+    border: 1px solid rgba(200,53,47, 0.9);
+}
+
+.message-@{ok} {
+		&:extend(.message all);	
+    color: @success; // green
+		background-color: lighten(@success, 45%); // light green
+		// background-color: saturate(@success, 45%);
+		// background-color: spin(@success, 180%);	// takes the color at the opposite side of the color wheel
+		// background-color: fade(@success, 20%);	// shows image behind it
+		// background-color: mix(@color1, @color2, 85%); //takes 85% of color1 and 15% of color2
+		// background-color: tint(@color1, @strength); //takes @color1 and mixes it with white with @strength percent
+		// background-color: shade(@color1, @strength); //takes @color1 and mixes it with black with @strength percent
+		// background-color: greyscale(@color1); //changes @color1 to grey
+		// background-color: contrast(@color1); //gives color that gives most amount of contrast *RESEARCH THIS MORE
+    border: 1px solid darken(@success, 20%); // green border
+    // border: 1px solid desaturate(@success, 20%); // green border
+}
+
+.message-@{warning} {
+	&:extend(.message all);
+	color: #333;
+	background-color: rgba(244,195,68, 0.2);
+	border: 1px solid rgba(244,195,68, 0.9);
+}
+
+.message img {
+    height: 1rem;
+    position: relative;
+    top: 2px;
+
+}
+
+.message-icon-ok {
+    stroke: #3ABE87;
+		margin-right: image-width('../images/circle-ok.svg') / 2; 
+		//gets width of image in link and divide by 2
+}
+
+@media (max-width: 320px) {
+    padding: 1rem;
+}
